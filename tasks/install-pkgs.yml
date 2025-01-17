@@ -20,7 +20,7 @@
   package:
     name: "{{ freeipa_server_dependency_pkgs }}"
     state: present
-    update_cache: "{{ omit if ((ansible_pkg_mgr == 'dnf') and (ansible_version is version('2.7', '<'))) else 'yes' }}"
+    update_cache: True
   delay: 10
   register: result
   retries: 3
@@ -30,7 +30,7 @@
   package:
     name: "{{ freeipa_server_pkgs }}"
     state: present
-    update_cache: "{{ omit if ((ansible_pkg_mgr == 'dnf') and (ansible_version is version('2.7', '<'))) else 'yes' }}"
+    update_cache: True
   delay: 10
   register: result
   retries: 3
