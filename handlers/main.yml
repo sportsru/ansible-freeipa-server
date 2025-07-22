@@ -5,3 +5,9 @@
     enabled: true
     name: ipa
     state: restarted
+
+- name: restart named service
+  service:
+    enabled: true
+    name: named
+    state: restarted

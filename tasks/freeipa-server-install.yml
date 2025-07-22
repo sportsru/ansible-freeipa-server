@@ -5,3 +5,12 @@
     creates: /etc/ipa/default.conf
   command: "{{ freeipa_server_install_base_command }} {{ freeipa_server_install_options | join(' ') }}"
   notify: restart ipa services
+
+- name: Configure IPA BIND options
+  copy:
+    src: files/patches/ipa-options-ext.conf
+    dest: /etc/named/ipa-options-ext.conf
+    owner: root
+    group: named
+    mode: "0640"
+  notify: restart named service
